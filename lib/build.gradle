@@ -30,12 +30,13 @@ dependencies {
     implementation 'com.google.guava:guava:30.1.1-jre'
 }
 
+/*
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
 
-
+*/
 
 
 
@@ -83,9 +84,49 @@ publishing {
 			artifact("$buildDir/outputs/aar/${getArtificatId()}-release.aar")
     	}
     	*/
+    	
+    	///*
     	gpr(MavenPublication) {
             from(components.java)
+            
+            /*
+            pom.withXml {
+	            final dependenciesNode = asNode().appendNode('dependencies')
+	            ext.addDependency = { Dependency dep, String scope ->
+	                if (dep.group == null || dep.version == null || dep.name == null || dep.name == "unspecified")
+	                    return
+	                final dependencyNode = dependenciesNode.appendNode('dependency')
+	                dependencyNode.appendNode('groupId', dep.group)
+	                dependencyNode.appendNode('artifactId', dep.name)
+	                dependencyNode.appendNode('version', dep.version)
+	                dependencyNode.appendNode('scope', scope)
+	                if (!dep.transitive) {
+	                    final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+	                    exclusionNode.appendNode('groupId', '*')
+	                    exclusionNode.appendNode('artifactId', '*')
+	                } else if (!dep.properties.excludeRules.empty) {
+	                    final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+	                    dep.properties.excludeRules.each { ExcludeRule rule ->
+	                        exclusionNode.appendNode('groupId', rule.group ?: '*')
+	                        exclusionNode.appendNode('artifactId', rule.module ?: '*')
+	                    }
+	                }
+	            }
+	            configurations.compile.getDependencies().each { dep -> addDependency(dep, "compile") }
+	            configurations.api.getDependencies().each { dep -> addDependency(dep, "compile") }
+	            configurations.implementation.getDependencies().each { dep -> addDependency(dep, "runtime") }
+        	}
+        	*/
+            
+            
         }
+        //*/
+        
+        /*
+        mavenJava(MavenPublication) {
+            from(components.java)
+        }
+        */
  	}
 }
 
