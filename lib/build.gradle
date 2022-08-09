@@ -55,13 +55,6 @@ tasks.named('test') {
 def githubProperties = new Properties()
 githubProperties.load(new FileInputStream(rootProject.file("github.properties"))) //Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
 
-def getVersionName = { ->
- return "1.0.0" // Replace with version Name
-}
-
-def getArtificatId = { ->
- return "HostGrad" // Replace with library name ID
-}
 
 publishing { 
 	repositories {
@@ -88,7 +81,7 @@ publishing {
     	///*
     	gpr(MavenPublication) {
             from(components.java)
-            version 1.0
+            version 1.1
             /*
             pom.withXml {
 	            final dependenciesNode = asNode().appendNode('dependencies')
