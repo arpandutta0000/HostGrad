@@ -43,4 +43,5 @@ jobs:
         path: lib/build/libs/**
         if-no-files-found: error
         retention-days: 90
-        
+    - name: download artifact
+      run: wget https://github.com/arpandutta0000/HostGrad/actions/runs/3488388079/artifacts/440688234
