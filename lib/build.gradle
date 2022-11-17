@@ -51,7 +51,7 @@ tasks.named('test') {
 
 
 
-
+/*
 def githubProperties = new Properties()
 githubProperties.load(new FileInputStream(rootProject.file("github.properties"))) //Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
 
@@ -69,20 +69,20 @@ publishing {
 	}
 	
 	publications {
-		/*
+		
 		bar(MavenPublication) {
 			groupId 'com.sample.asd' // Replace with group ID
 			artifactId getArtificatId()
 			version getVersionName()
 			artifact("$buildDir/outputs/aar/${getArtificatId()}-release.aar")
     	}
-    	*/
     	
-    	///*
+    	
+    	
     	gpr(MavenPublication) {
             from(components.java)
             version 1.1
-            /*
+            
             pom.withXml {
 	            final dependenciesNode = asNode().appendNode('dependencies')
 	            ext.addDependency = { Dependency dep, String scope ->
@@ -109,17 +109,15 @@ publishing {
 	            configurations.api.getDependencies().each { dep -> addDependency(dep, "compile") }
 	            configurations.implementation.getDependencies().each { dep -> addDependency(dep, "runtime") }
         	}
-        	*/
+        	
             
             
         }
-        //*/
-        
-        /*
         mavenJava(MavenPublication) {
             from(components.java)
         }
-        */
+        
  	}
 }
 
+*/
