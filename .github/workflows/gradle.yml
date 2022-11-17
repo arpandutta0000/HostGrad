@@ -35,11 +35,12 @@ jobs:
 
     - name: Find jar file
       run: cd lib/build/libs && ls
-    
-    
-    
-    
-    
-    
-    
-    
+      
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v2.2.0
+      with: 
+        name: random_jar
+        path: lib/build/libs/**
+        if-no-files-found: error
+        retention-days: 90
+        
