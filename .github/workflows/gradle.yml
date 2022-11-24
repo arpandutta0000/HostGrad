@@ -43,7 +43,4 @@ jobs:
         path: lib/build/libs/**
         if-no-files-found: error
         retention-days: 90
-        
-    - name: find version
-      run: ./gradlew versionDisplay
-       
+
